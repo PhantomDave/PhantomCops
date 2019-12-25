@@ -31,6 +31,7 @@ namespace PhantomCops.Accounts
             if (Database.CheckLogin(player, email, password))
             {
                 player.TriggerEvent("GetReadyToPlay");
+                SetupPlayerForCharacterCreation(player);
                 player.TriggerEvent("ShowCharacterCreator");
             }
             else
@@ -38,6 +39,15 @@ namespace PhantomCops.Accounts
                 player.TriggerEvent("showError", "Credenziali errate");
             }
 
+        }
+
+        uint creatorDim = 0;
+        public void SetupPlayerForCharacterCreation(Client player)
+        {
+            NAPI.Player.SpawnPlayer(player, new Vector3(402.8664, -996.4108, -99.00027), -185);
+            player.Dimension = creatorDim;
+            ++creatorDim;
+           
         }
     }
 }

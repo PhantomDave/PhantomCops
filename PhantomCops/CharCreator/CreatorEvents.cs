@@ -25,10 +25,18 @@ namespace PhantomCops.CharCreator
                 }
             }
         }
-        [RemoteEvent("ChangePlayerParents")]
-        public void ChangeParents(Client player, int father, int mother)
+        [RemoteEvent("UpdatePlayerParents")]
+        public void UpdatePlayerParents(Client player, byte father, byte mother, float mix)
         {
-           // NAPI.Player.SetPlayerHeadBlend
+            var blend = new HeadBlend()
+            {
+                ShapeFirst = father,
+                ShapeSecond = mother,
+                ShapeMix = mix,
+                ShapeThird = 0
+            };
+            NAPI.Player.SetPlayerHeadBlend(player, blend);
         }
+        // Confirm Parents
     }
 }
