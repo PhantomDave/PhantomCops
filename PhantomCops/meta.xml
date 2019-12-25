@@ -1,0 +1,8 @@
+﻿<meta>
+  <info name="PhantomCops" type="script" />
+
+  <assembly ref="MySql.Data.dll" />
+  <assembly ref="System.Text.Encoding.CodePages.dll" />
+  
+  <script src="PhantomCops.dll" />
+</meta>
